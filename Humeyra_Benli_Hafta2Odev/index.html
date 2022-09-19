@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Homework</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+    
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="container p-3">
+                        <p style="font-weight: 600">Add Customer</p>
+                    
+                        <div class="row">
+                            <div class="col mb-2">
+                                <input onchange="handleOnChange(event)" type="text"
+                                class="form-control" placeholder="Name" id="newAccountHolder">
+                            </div>
+        
+                            <div class="col mb-1">
+                                <input onchange="handleOnChange(event)" type="number"
+                                class="form-control" placeholder="Balance" id="newAccountBalance"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-3 mt-1 ms-auto">
+                              <button
+                                type="button"
+                                class="btn btn-success"
+                                onclick="newAccountHolder()"
+                                style="width: 100%"
+                              >
+                                Add
+                              </button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="card">
+                    <div class="container p-3">
+                        <p style="font-weight: 600">Money Transfer</p>
+                         <div class="row">
+                             <div class="col-4">
+                                <div id="from-the-account-holder-list" >
+                                
+                                </div>
+                             </div>
+                             <div class="col-4">
+                                <div>
+                                    <input type="number" class="form-control" id="transactional-amount" onchange="handleOnChange(event)"
+                                        placeholder="Amount"></div>
+                                        <div class="mt-2">
+                                            <button type="button" onclick="transactionalAction()" class="btn btn-success"
+                                            style="width: 100%;">
+                                            Send
+                                            
+                                        </button>
+                                        </div>
+                                       
+                             </div>
+                             <div class="col-4">
+                                <div id="send-to-account-holder-list"></div>
+
+                            </div>
+                        
+                        
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="container p-3">
+                        <p style="font-weight: 600">Add Product</p>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col mb-1"><input onchange="handleOnChange(event)" type="text"
+                                            class="form-control" placeholder="Product Name" id="newProductName">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mt-1"><input onchange="handleOnChange(event)" type="number"
+                                            class="form-control" placeholder="Price" id="newProductPrice">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mt-1"><input onchange="handleOnChange(event)" type="number"
+                                            class="form-control" placeholder="Quantity" id="newProductQuantity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2 mt-1 ms-auto">
+                                    <button type="button" class="btn btn-success" onclick="newProduct()"
+                                        style="height: 100%;">Add</button>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-4 p-2">
+                <div class="card" style="overflow-y:scroll">
+                    <div class="container p-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center"
+                                style="font-weight: 500;">
+                                <span>Customer</span> 
+                                <span>Balance</span>
+                                <span>Products</span>
+                                <span>Account Activities</span>
+                            </li>
+                        </ul>
+                        <div id="account-holders-list">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-2">
+                <div class="card" style="overflow-y:scroll">
+                    <div class="container p-3">
+                        
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" style="font-weight: 500;">History</li>
+
+                        </ul>
+                    
+                    <div id="history-container"></div>
+                    <div id="productDetail-container"></div>
+
+                       
+                    </div>
+                    </div>
+                </div>
+            <div class="col-4 p-2">
+                <div class="card" style="overflow-y:scroll">
+                    <div class="container p-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center"
+                            style="font-weight: 500;">
+                            <span>Product</span> 
+                            <span>Price</span>
+                            <span>Quantity</span>
+                            <span>Sell</span>
+                            
+                        </li>
+                        </ul>
+                        <div id="product-list">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            </div>
+            
+        </div>
+    </div>
+    <script src="src/components.js"></script>
+    <script src="src/utils.js"></script>
+    <script src="src/app.js"></script>
+</body>
+
+</html>
